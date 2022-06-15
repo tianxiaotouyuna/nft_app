@@ -1,0 +1,114 @@
+//
+//  PrefixHeader.pch
+//  GoldControl
+//
+//  Created by xiao tian on 2019/4/6.
+//  Copyright © 2019年 xiao tian. All rights reserved.
+//
+
+#ifndef XingKa_PrefixHeader_pch
+#define XingKa_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//数据库名称
+#define DBName  @"DataBase.db"
+// 密钥
+#define SecretKey_XK       @"Ce^dkT*dz1!O1Gc="
+//本地NSUserDefaults
+#define   UersDefault_XK    [NSUserDefaults standardUserDefaults]
+//标签
+#define   TagNewInfo_p      @"TagNewInfo.plist"
+//行咖推荐的好友列表
+#define   RecomNewInfo_p    @"RecommendFriendNewInfo.plist"
+//汽车品牌
+#define   CarNewInfo_p      @"CarBrandList.plist"
+//@好友列表
+#define   ToFriendInfo_p    @"ToFriendList.plist"
+//草稿箱
+#define CaoGaoBox_P         @"cgx.plist"
+//置顶聊天ID
+#define UserTopChatPilstName @"UserTopChatValue.plist"
+//离线状态下@我的记录
+#define OfflineRecordAtMe_p  @"offLineRecordAtMeList.plist"
+//咖聊保存草稿
+#define UserChatDraft_p      @"UserChatDraftList.plist"
+
+#define     QiNiuToken_UD     @"qiniutoken"
+// iOS系统版本
+#define SYSTEM_VERSION    [[[UIDevice currentDevice] systemVersion] floatValue]
+#define Main_Url @""
+#define MainColor      COLOR(82, 109, 224)
+#define COLOR(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
+#define HomeBannerPlaceholder [UIImage imageNamed:@"shouye-banner"]
+#define HomeQYXPlaceholder [UIImage imageNamed:@"shouye-qiyexiu"]
+#define HomeTTPlaceholder [UIImage imageNamed:@"shouye-toutiao"]
+//#define HomeBannerPlaceholder [UIImage imageNamed:@"shouye-banner"]
+#define HeadPlaceholder [UIImage imageNamed:@"huitie-morentouxian"]
+#define PersonHeadBgPlace [UIImage imageNamed:@"beijing"]
+
+#define BuildVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+
+#define ScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define ScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define AutoSizeH [[UIScreen mainScreen] bounds].size.height/667
+#define AutoSizeW [[UIScreen mainScreen] bounds].size.width/375
+#define sbVC(name,ideny) [[UIStoryboard storyboardWithName:name bundle:nil] instantiateViewControllerWithIdentifier:ideny]
+#define tabBarColor ColorWithRGB(20,151,24)
+#define Main_BG_Color ColorWithRGB(238,238,238)
+#define NavigationBarColor ColorWithRGB(20,151,24)
+#define QiNiuXK_URL @"http://file.xingka.cc/"
+
+#define ColorWithRGB(r,g,b) [UIColor colorWithRed:r/255. green:g/255. blue:b/255. alpha:1]
+
+
+// status bar height.
+
+#define kStatusBarHeight (IS_iPhoneX ? 44.f : 20.f)
+
+// Navigation bar height.
+
+#define kNavigationBarHeight 44.f
+
+// Tabbar height.
+
+#define kTabbarHeight (IS_iPhoneX ? (49.f+34.f) : 49.f)
+
+// Tabbar safe bottom margin.
+
+#define kTabbarSafeBottomMargin (IS_iPhoneX ? 34.f : 0.f)
+
+// Status bar & navigation bar height.
+
+#define kStatusBarAndNavigationBarHeight (IS_iPhoneX ? 88.f : 64.f)
+//判断是否iPhone X
+#define IS_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+//  16 进制色值转换     使用方法 ZXColorFromRGB(0xffffff);
+
+#define ZXColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIImageView+Animation.h"
+//#import "UIViewController+VideoCache.h"
+//#import <SuperPlayer/SuperPlayer.h>
+#endif
+
+#define NSLog(format, ...) do {                                             \
+fprintf(stderr, "<%s : %d> %s\n",                                           \
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
+__LINE__, __func__);                                                        \
+(NSLog)((format), ##__VA_ARGS__);                                           \
+fprintf(stderr, "------------------------------\n");                        \
+} while (0)
+
+#ifdef DEBUG
+#define TLLog(format, ...) printf("%s - %d行 - %s\n",__FUNCTION__,__LINE__,  [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define TLLog(format, ...)
+#endif
+
+#endif
+
